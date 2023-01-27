@@ -88,5 +88,4 @@ function p.getCardNumberFromCode( code )
     return p.getInfoFromCode(code)[4]
 end
 
-
 return p

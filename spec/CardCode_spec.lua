@@ -1,8 +1,8 @@
 local CardCode = require "CardCode"
 
 
-local function code(code)
-    return { args = { code} }
+local function code(_code)
+    return { args = { _code} }
 end
 
 setup(function()
