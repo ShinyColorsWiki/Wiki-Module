@@ -1,3 +1,7 @@
+name: Coverage and static check test
+
+on: [push, pull_request]
+
 jobs:
   test:
     name: Coverage and static check test
@@ -20,14 +24,16 @@ jobs:
           luarocks install busted
           luarocks install luacov
 
-      - name: Check coverage with busted 
-        run: busted
-  
+      - name: Check spec and coverage with busted 
+        run: |
+          busted
+          luacov
+
       - name: Upload coverage to codecov.io
         uses: codecov/codecov-action@v3.1.1
         with:
           token: ${{secrets.CODECOV_TOKEN}} # not required for public repos
-          files: luacov.stats.out
+          files: ./luacov.report.out
           fail_ci_if_error: false
 
       - name: Check static-check with luacheck
