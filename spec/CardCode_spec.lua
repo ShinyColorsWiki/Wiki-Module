@@ -1,8 +1,8 @@
 local CardCode = require "CardCode"
 
 
-local function code(_code)
-    return { args = { _code} }
+local function c(x)
+    return { args = { x } }
 end
 
 setup(function()
@@ -11,7 +11,7 @@ end)
 
 describe("CardCode", function()
     describe("P-SSR1 Nichika", function()
-        local code = code("1040240010")
+        local code = c("1040240010")
 
         it("Type check", function()
             assert.is_equal(CardCode.getTypeFromCode(code), "Produce")
@@ -31,7 +31,7 @@ describe("CardCode", function()
     end)
 
     describe("P-IdolRoad SSR1 Hiori", function()
-        local code = code("1940020010")
+        local code = c("1940020010")
 
         it("Type check", function()
             assert.is_equal(CardCode.getTypeFromCode(code), "Produce")

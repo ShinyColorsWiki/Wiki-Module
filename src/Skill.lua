@@ -33,20 +33,24 @@ local live = {
     influence = false,
     dmg = false,
     appeal = false,
-    all_judges = false,
-    lower_mental = false,
-    higher_mental = false,
-    memory_gauge = false,
-    instantly_satisfy = false
+    multi = false,
+    lowmental = false,
+    highmental = false,
+    gauge = false,
+    onehit = false,
+    excellent = false
 }
 
 p.text = false
 p.icon = false
 p.category = false
 
-
-
 function p.basicParser(args)
+    -- reset output
+    p.text = false
+    p.icon = false
+    p.category = false
+
     -- Check invalid argument
     if args[1] ~= nil and string.len(p.strim(args[1])) < 1 then
         return false
@@ -80,10 +84,10 @@ function p.basicParser(args)
     end
 
     local f = title:find("'''''")
-    if f == nil or f < 6 then
+    if f == nil or f > 6 then
         passive:parser(title)
     else
-        --live:parser(text)
+        live:parser()
     end
 
     return true
@@ -142,10 +146,15 @@ function passive:check(text)
     for k, v in pairs(typeList) do
         if text:find(v) ~= nil then
             self[k] = true
+        else
+            -- fix leftover re-use
+            self[k] = false
         end
     end
 end
 
+-- Parse the passive data.
+-- Note: This function has lot of statement as it was based on Mediawiki ParserFunctions and this follows it
 function passive:parse()
     -- All up
     if self.vocal and self.dance and self.visual and self.up and not self.down then
@@ -369,6 +378,7 @@ function passive:parse()
         p.category = "Limit"
 
         if self.vocal then
+            print(self.vocal, self.dance, self.visual, self.title)
             if not self.dance and not self.visual then
                 p.icon = "Vo"
             end
@@ -398,6 +408,283 @@ function passive:parse()
         end
     end
     -- not checked: ReviveOk
+end
+
+-- Live skill parser
+function live:parser()
+    p.category = "Live"
+    self:check()
+    self:parse()
+end
+
+-- Live type checker
+function live:check()
+    local t = p.text:lower()
+    local s, _ = t:find("live")
+    local text = t:sub(0, s)
+
+    local typeList = {
+        vocal = 'vocal',
+        dance = 'dance',
+        visual = 'visual',
+        mental = 'mental',
+        up = 'up',
+        down = 'down',
+        cut = 'cut',
+        heal = 'heal',
+        regen = 'regen',
+        attention = 'attention',
+        interest = 'interest',
+        influence = 'influence',
+        dmg = 'dmg',
+        appeal = 'appeal',
+        multi = 'all judges',
+        lowmental = 'lower mental',
+        highmental = 'higher mental',
+        gauge = 'memory gauge',
+        onehit = 'instantly satisfy'
+    };
+
+    for k, v in pairs(typeList) do
+        if text:find(v) ~= nil then
+            self[k] = true
+        else
+            self[k] = false
+        end
+    end
+end
+
+-- Parse the live data.
+-- Note: This function has lot of statement as it was based on Mediawiki ParserFunctions and this follows it
+function live:parse()
+    -- All
+    if self.vocal and self.dance and self.visual then
+        p.icon = "All"
+
+        if not self.appeal and self.up then
+            p.icon = "AllUp"
+        end
+
+        if self.multi then
+            p.icon = "AllMulti"
+        end
+    end
+
+    -- Vo(s)
+    if self.vocal then
+        -- Vo only
+        if not self.dance and not self.visual then
+            p.icon = "Vo"
+
+            if self.multi then
+                p.icon = "VoMulti"
+            end
+
+            if not self.appeal and self.up then
+                p.icon = "VoUp"
+            end
+
+            if self.highmental then
+                p.icon = "VoHighmental"
+            end
+
+            if self.lowmental then
+                p.icon = "VoLowmental"
+            end
+
+            if self.melancholy then
+                p.icon = "VoMelancholy"
+            end
+
+            if self.revive then
+                p.icon = "VoRevive"
+            end
+        end
+
+        -- Vo & Da
+        if self.dance and not self.visual then
+            p.icon = "VoDa"
+
+            if self.multi then
+                p.icon = "VoDaMulti"
+            end
+
+            if not self.appeal and self.up then
+                p.icon = "VoDaUp"
+            end
+        end
+
+        -- Vo & Vi
+        if not self.dance and self.visual then
+            p.icon = "VoVi"
+
+            if self.multi then
+                p.icon = "VoViMulti"
+            end
+
+            if not self.appeal and self.up then
+                p.icon = "VoViUp"
+            end
+        end
+    end
+
+    -- Da(s)
+    if self.dance then
+        -- Da only
+        if not self.vocal and not self.visual then
+            p.icon = "Da"
+
+            if self.multi then
+                p.icon = "DaMulti"
+            end
+
+            if not self.appeal and self.up then
+                p.icon = "DaUp"
+            end
+
+            if self.highmental then
+                p.icon = "DaHighmental"
+            end
+
+            if self.lowmental then
+                p.icon = "DaLowmental"
+            end
+
+            if self.melancholy then
+                p.icon = "DaMelancholy"
+            end
+
+            if self.revive then
+                p.icon = "DaRevive"
+            end
+        end
+
+        -- Da & Vi
+        if not self.vocal and self.visual then
+            p.icon = "DaVi"
+
+            if self.multi then
+                p.icon = "DaViMulti"
+            end
+
+            if not self.appeal and self.up then
+                p.icon = "DaViUp"
+            end
+        end
+    end
+
+    -- Vi
+    if not self.vocal and not self.dance and self.visual then
+        p.icon = "Vi"
+
+        if self.multi then
+            p.icon = "ViMulti"
+        end
+
+        if not self.appeal and self.up then
+            p.icon = "ViUp"
+        end
+
+        if self.highmental then
+            p.icon = "ViHighmental"
+        end
+
+        if self.lowmental then
+            p.icon = "ViLowmental"
+        end
+
+        if self.melancholy then
+            p.icon = "ViMelancholy"
+        end
+
+        if self.revive then
+            p.icon = "ViRevive"
+        end
+    end
+
+    -- Misc
+    if not self.appeal then
+        if self.attention then
+            if self.down and not self.up then
+                p.icon = "AttentionDown"
+            end
+
+            if not self.down and self.up then
+                p.icon = "AttentionUp"
+            end
+        end
+
+        if self.gauge and not self.heal and not self.regen and not self.attention then
+            p.icon = "GaugeUp"
+        end
+
+        if self.dmg and self.cut then
+            p.icon = "Guard"
+        end
+
+        if self.heal and not self.cut then
+            p.icon = "Heal"
+        end
+
+        if self.regen and not self.cut then
+            p.icon = "Regen"
+        end
+
+        if self.revive then
+            p.icon = "Revive"
+        end
+
+        if self.influence and not self.heal then
+            if self.down and not self.up then
+                p.icon = "InfluenceDown"
+            end
+
+            if not self.down and self.up then
+                p.icon = "InfluenceUp"
+            end
+        end
+
+        if self.interest and not self.heal then
+            if self.down and not self.up then
+                p.icon = "InterestDown"
+            end
+
+            if not self.down and self.up then
+                p.icon = "InterestUp"
+            end
+        end
+
+        if self.melancholy then
+            p.icon = "Melancholy"
+        end
+    end
+
+    if self.onehit then
+        p.icon = "Onehit"
+    end
+
+    if self.excellent then
+        p.icon = "Excellent"
+    end
+
+    -- Unchecked icons
+    -- > AllDownPerfect
+    -- > AllUpPerfect
+    -- > DaGauge
+    -- > DaLast
+    -- > DaPerfect
+    -- > ViGauge
+    -- > ViLast
+    -- > ViPerfect
+    -- > VoGauge
+    -- > VoLast
+    -- > VoPerfect
+    -- > DistractionDown
+    -- > DistractionUp
+    -- > GaugeUpGaugegainDown
+    -- > Over
+    -- > PerfectDown
+    -- > PerfectUp
 end
 
 return p
