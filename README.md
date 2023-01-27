@@ -1,5 +1,7 @@
 Scribunto Module Repository
 ===========================
+[![codecov](https://codecov.io/github/ShinyColorsWiki/Wiki-Module/branch/master/graph/badge.svg?token=36H6NZDYNF)](https://codecov.io/github/ShinyColorsWiki/Wiki-Module)
+
 This Repository contains Modules of Shinycolors Wiki.
 
 Directory listing is like:
@@ -19,9 +21,8 @@ Test Suite using
 
 Install both with `luarocks` to run test.
 
-
 | Module Name | Wiki Page |
 |-------------|-----------|
-| CardCode    |           |
-|             |           |
+| CardCode    | `Module:CardCode` |
+| Skill       | `Module:Skill`    |
 |             |           |
