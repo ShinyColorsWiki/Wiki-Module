@@ -203,6 +203,10 @@ function passive:parse()
         if self.dance and not self.visual then
             -- Note: all of 2 types skills are contains Up as of now. just left for next uses
             if self.up then
+                if not self.down then
+                    p.icon = "VoDaUp"
+                end
+
                 -- Attention
                 if self.attention then
                     if self.down then
@@ -222,6 +226,10 @@ function passive:parse()
         if not self.dance and self.visual then
             -- Note: all of 2 types skills are contains Up as of now. just left for next uses
             if self.up then
+                if not self.down then
+                    p.icon = "VoViUp"
+                end
+
                 -- Attention
                 if self.attention then
                     if self.down then
@@ -244,7 +252,6 @@ function passive:parse()
         if not self.vocal and not self.visual then
             -- contains Up
             if self.up then
-
                 if not self.down then
                     p.icon = "DaUp"
                 end
@@ -280,6 +287,10 @@ function passive:parse()
         if not self.vocal and self.visual then
             -- Note: all of 2 types skills are contains Up as of now. just left for next uses
             if self.up then
+                if not self.down then
+                    p.icon = "DaViUp"
+                end
+
                 -- Attention
                 if self.attention then
                     if self.down then
@@ -334,11 +345,11 @@ function passive:parse()
     -- Misc
     if not self.vocal and not self.dance and not self.visual then
 
-        if not self.down then
-            if self.attention and not self.up then
-                p.icon = "AttentionDown"
-            end
+        if self.attention and not self.up and self.down then
+            p.icon = "AttentionDown"
+        end
 
+        if not self.down then
             if not self.cut then
                 if self.heal then
                     p.icon = "Heal"
@@ -378,7 +389,6 @@ function passive:parse()
         p.category = "Limit"
 
         if self.vocal then
-            print(self.vocal, self.dance, self.visual, self.title)
             if not self.dance and not self.visual then
                 p.icon = "Vo"
             end
