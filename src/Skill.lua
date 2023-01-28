@@ -52,11 +52,11 @@ function p.basicParser(args)
     p.category = false
 
     -- Check invalid argument
-    if args[1] ~= nil and string.len(p.strim(args[1])) < 1 then
+    if args[1] == nil or string.len(p.strim(args[1])) < 1 then
         return false
     end
 
-    if args[2] ~= nil and string.len(p.strim(args[2])) < 1 then
+    if args[2] == nil or string.len(p.strim(args[2])) < 1 then
         return false
     end
 
@@ -65,7 +65,7 @@ function p.basicParser(args)
 
     -- Additional (SpecifySkillIcon compat)
     if args[3] ~= nil and string.len(p.strim(args[3])) > 4 then
-        local type, category, icon = p.strim(args[3]):match("([^,]+),([^,]+),([^,]+)")
+        local type, category, icon = p.strim(args[3]):match("([^,]*),([^,]+),*([^,]*)")
 
         -- Invalid syntax but trying to fix.
         type = p.strim(type)
@@ -74,8 +74,8 @@ function p.basicParser(args)
             or type == "No"
             or type == ""-- invalid by compat
             ) then
-            icon = type
-            category = icon
+            icon = category
+            category = type
         end
 
         p.icon = p.strim(icon)
@@ -141,7 +141,7 @@ function passive:check(text)
         dmg = 'dmg',
         gauge = 'memory gauge',
         excellent = 'excellent'
-    };
+    }
 
     for k, v in pairs(typeList) do
         if text:find(v) ~= nil then
@@ -443,7 +443,7 @@ function live:check()
         highmental = 'higher mental',
         gauge = 'memory gauge',
         onehit = 'instantly satisfy'
-    };
+    }
 
     for k, v in pairs(typeList) do
         if text:find(v) ~= nil then
