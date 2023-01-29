@@ -1,3 +1,9 @@
+-- !! ### IMPORTANT ### !!
+-- This module code is hosted on GitHub due to code check and testing,
+-- And the changes made on wiki may be overwritten by bot any time.
+-- Please contact to #wiki-discussion on Discord or directly via GitHub.
+-- Github repository : https://github.com/ShinyColorsWiki/Wiki-Module
+
 local p = {}
 
 p.type = {
@@ -49,42 +55,42 @@ p.character_code = {
     [25] = "Mikoto Aketa"
 }
 
-function p.splitCode( code )
+function p.splitCode(code)
     code = code.args[1]
     return {
         tonumber(string.sub(code, 1, 1)), -- type
         tonumber(string.sub(code, 2, 3)), -- rarity
         tonumber(string.sub(code, 4, 6)), -- character
-        tonumber(string.sub(code, 7, 9))  -- card number
+        tonumber(string.sub(code, 7, 9)) -- card number
     }
 end
 
-function p.getInfo( arr )
+function p.getInfo(arr)
     return {
-        p.type[arr[1]],           -- type
-        p.rarity[arr[2]],        -- rarity
+        p.type[arr[1]], -- type
+        p.rarity[arr[2]], -- rarity
         p.character_code[arr[3]], -- character
-        arr[4]                    -- card number
+        arr[4] -- card number
     }
 end
 
-function p.getInfoFromCode( code )
+function p.getInfoFromCode(code)
     return p.getInfo(p.splitCode(code))
 end
 
-function p.getTypeFromCode( code )
+function p.getTypeFromCode(code)
     return p.getInfoFromCode(code)[1]
 end
 
-function p.getRarityFromCode( code )
+function p.getRarityFromCode(code)
     return p.getInfoFromCode(code)[2]
 end
 
-function p.getCharacterFromCode( code )
+function p.getCharacterFromCode(code)
     return p.getInfoFromCode(code)[3]
 end
 
-function p.getCardNumberFromCode( code )
+function p.getCardNumberFromCode(code)
     return p.getInfoFromCode(code)[4]
 end
 

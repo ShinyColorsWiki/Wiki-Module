@@ -1,3 +1,9 @@
+-- !! ### IMPORTANT ### !!
+-- This module code is hosted on GitHub due to code check and testing,
+-- And the changes made on wiki may be overwritten by bot any time.
+-- Please contact to #wiki-discussion on Discord or directly via GitHub.
+-- Github repository : https://github.com/ShinyColorsWiki/Wiki-Module
+
 local p = {}
 
 local passive = {
