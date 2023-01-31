@@ -1,8 +1,10 @@
--- !! ### IMPORTANT ### !!
--- This module code is hosted on GitHub due to code check and testing,
--- And the changes made on wiki may be overwritten by bot any time.
--- Please contact to #wiki-discussion on Discord or directly via GitHub.
--- Github repository : https://github.com/ShinyColorsWiki/Wiki-Module
+--[[
+    !! ### IMPORTANT ### !!
+ This module code is hosted on GitHub due to code check and testing,
+ And the changes made on wiki may be overwritten by bot any time.
+ Please contact to #wiki-discussion on Discord or directly via GitHub.
+ Github repository : https://github.com/ShinyColorsWiki/Wiki-Module
+]]
 
 local p = {}
 
@@ -51,6 +53,18 @@ p.text = false
 p.icon = false
 p.category = false
 
+---@param s string string to trim
+local function strim(s)
+    return (string.gsub(s, "^%s*(.-)%s*$", "%1"))
+end
+
+---@param base string
+---@param s string
+local function explode0(base, s)
+    local sp, _ = base:find(s)
+    return base:sub(0, sp)
+end
+
 function p.basicParser(args)
     -- reset output
     p.text = false
@@ -58,23 +72,23 @@ function p.basicParser(args)
     p.category = false
 
     -- Check invalid argument
-    if args[1] == nil or string.len(p.strim(args[1])) < 1 then
+    if args[1] == nil or string.len(strim(args[1])) < 1 then
         return false
     end
 
-    if args[2] == nil or string.len(p.strim(args[2])) < 1 then
+    if args[2] == nil or string.len(strim(args[2])) < 1 then
         return false
     end
 
-    local title = p.strim(args[1])
-    p.text = p.strim(args[2])
+    local title = strim(args[1])
+    p.text = strim(args[2])
 
     -- Additional (SpecifySkillIcon compat)
-    if args[3] ~= nil and string.len(p.strim(args[3])) > 4 then
-        local type, category, icon = p.strim(args[3]):match("([^,]*),([^,]+),*([^,]*)")
+    if args[3] ~= nil and string.len(strim(args[3])) > 4 then
+        local type, category, icon = strim(args[3]):match("([^,]*),([^,]+),*([^,]*)")
 
         -- Invalid syntax but trying to fix.
-        type = p.strim(type)
+        type = strim(type)
         if not (type == "Yes"
             or type == "Niji"
             or type == "No"
@@ -84,8 +98,8 @@ function p.basicParser(args)
             category = type
         end
 
-        p.icon = p.strim(icon)
-        p.category = p.strim(category)
+        p.icon = strim(icon)
+        p.category = strim(category)
         return true
     end
 
@@ -114,10 +128,6 @@ function p.render()
     else
         return p.text
     end
-end
-
-function p.strim(s)
-    return (string.gsub(s, "^%s*(.-)%s*$", "%1"))
 end
 
 -- Passive skill parser
@@ -436,8 +446,7 @@ end
 -- Live type checker
 function live:check()
     local t = p.text:lower()
-    local s, _ = t:find("live")
-    local text = t:sub(0, s)
+    local text = explode0(explode0(t, "live"), "link")
 
     local typeList = {
         vocal = 'vocal',

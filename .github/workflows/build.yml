@@ -48,21 +48,30 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - wiki: "Module:CardCode"
-            file: "./src/CardCode.lua"
-          - wiki: "Module:Skill"
-            file: "./src/Skill.lua"
+        name: ["CardCode", "Skill"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Upload to wiki
-        uses: ShinyColorsWiki/github-actions-mediawiki-uploader@v0.1
+      - name: Upload module to wiki
+        uses: ShinyColorsWiki/github-actions-mediawiki-uploader@v1
         with:
           mediawiki_api_url: "https://shinycolors.wiki/w/api.php"
           username: ${{ secrets.BOT_USERNAME }}
           password: ${{ secrets.BOT_PASSWORD }}
-          filepath: ${{ matrix.file }}
-          pagename: ${{ matrix.wiki }}
+          filepath: ./src/${{ matrix.name }}.lua
+          pagename: 'Module:${{ matrix.name }}'
           useragent: ${{ secrets.BOT_USERAGENT }}
+          summary: 'Editing {title} page by Github Action. Reference: https://github.com/ShinyColorsWiki/Wiki-Module/commit/{commit}'
+
+      - name: Upload documentation to wiki
+        uses: ShinyColorsWiki/github-actions-mediawiki-uploader@v1
+        continue-on-error: true
+        with:
+          mediawiki_api_url: "https://shinycolors.wiki/w/api.php"
+          username: ${{ secrets.BOT_USERNAME }}
+          password: ${{ secrets.BOT_PASSWORD }}
+          filepath: ./doc/${{ matrix.name }}.txt
+          pagename: 'Module:${{ matrix.name }}/doc'
+          useragent: ${{ secrets.BOT_USERAGENT }}
+          summary: 'Editing {title} page by Github Action. Reference: https://github.com/ShinyColorsWiki/Wiki-Module/commit/{commit}'

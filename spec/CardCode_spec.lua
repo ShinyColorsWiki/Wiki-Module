@@ -28,6 +28,10 @@ describe("CardCode", function()
         it("Card Number check", function()
             assert.is_equal(CardCode.getCardNumberFromCode(code), 1)
         end)
+
+        it("Card Page Name check", function()
+            assert.is_equal(CardCode.getCardPageNameFromCode(code), "P-SSR1 Nichika")
+        end)
     end)
 
     describe("P-IdolRoad SSR1 Hiori", function()
@@ -47,6 +51,10 @@ describe("CardCode", function()
 
         it("Card Number check", function()
             assert.is_equal(CardCode.getCardNumberFromCode(code), 1)
+        end)
+
+        it("Card Page Name check", function()
+            assert.is_equal(CardCode.getCardPageNameFromCode(code), "P-IdolRoad SSR1 Hiori")
         end)
     end)
 end)

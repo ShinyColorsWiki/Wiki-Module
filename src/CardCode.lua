@@ -1,8 +1,10 @@
--- !! ### IMPORTANT ### !!
--- This module code is hosted on GitHub due to code check and testing,
--- And the changes made on wiki may be overwritten by bot any time.
--- Please contact to #wiki-discussion on Discord or directly via GitHub.
--- Github repository : https://github.com/ShinyColorsWiki/Wiki-Module
+--[[
+    !! ### IMPORTANT ### !!
+ This module code is hosted on GitHub due to code check and testing,
+ And the changes made on wiki may be overwritten by bot any time.
+ Please contact to #wiki-discussion on Discord or directly via GitHub.
+ Github repository : https://github.com/ShinyColorsWiki/Wiki-Module
+]]
 
 local p = {}
 
@@ -55,8 +57,13 @@ p.character_code = {
     [25] = "Mikoto Aketa"
 }
 
+---@param s string string to trim
+local function strim(s)
+    return (string.gsub(s, "^%s*(.-)%s*$", "%1"))
+end
+
 function p.splitCode(code)
-    code = code.args[1]
+    code = strim(code.args[1])
     return {
         tonumber(string.sub(code, 1, 1)), -- type
         tonumber(string.sub(code, 2, 3)), -- rarity
@@ -92,6 +99,15 @@ end
 
 function p.getCardNumberFromCode(code)
     return p.getInfoFromCode(code)[4]
+end
+
+function p.getCardPageNameFromCode(code)
+    local data = p.getInfoFromCode(code)
+    return string.format("%s-%s%s %s",
+        data[1]:sub(1, 1),
+        data[2],
+        data[4],
+        data[3]:match("%w+"))
 end
 
 return p
