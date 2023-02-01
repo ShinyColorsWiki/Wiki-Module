@@ -1,1 +1,16 @@
-WIP...
+This module is intended to parse skill and return to table that fit into SkillPanel.
+
+This documentation is hosted on [https://github.com/ShinyColorsWiki/Wiki-Module Github repository]. Any changes made on wiki may be overwritten by bot any time.
+
+= Usage =
+
+Main function is only accessible safely via Template. (or <code>parentFrame()</code>)
+
+There's an exposed non-parent function that trying to improve compatibility old version of [[Template:Skill]] and [[Template:SkillPanel]]. 
+
+== <code>descriptionParser</code> ==
+This function returns the <code>Yes</code>, <code>No</code> or <code>Niji</code> for skill panel description style. As of [[Template:SpecifySkillIcon]] (will) returns additional character for module-based [[Template:Skill]] that doesn't on previous version of [[Template:SkillPanel]].
+
+Usage: <code><nowiki>{{#invoke:Skill|descriptionParser|No, Live, Revive}}</nowiki></code>
+
+__NOTOC__

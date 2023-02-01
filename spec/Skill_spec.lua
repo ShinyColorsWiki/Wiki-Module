@@ -423,7 +423,40 @@ describe("Skill", function()
 
     describe("Check Live skill", function()
         -- luacheck: no max line length
-        it("Pretty Sweet",
+
+        -- All
+        it("[All] Ha♡to-felt Gift",
+            testGenerator(
+                "'''''Ha♡to-felt Gift'''''",
+                [['''''{{#tag:span|Visual 2.5× Appeal|style="background-color:#ffbf27"}}''''' /<br/>'''''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Dance|style="background-color:#7fbfff"}} 1.5× Appeal|style="background-color:#dfdfdf"}}''''' /<br/>'''''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Dance|style="background-color:#7fbfff"}}&{{#tag:span|Visual|style="background-color:#ffbf27"}} 5% UP|style="background-color:#dfdfdf"}}''''' [5 turns]<br/>'''Link:''' ''{{#tag:span|Memory Gauge 10% UP|style="background-color:#9f87ff"}}'']]
+                ,
+                "",
+                "Live",
+                "All"
+            ))
+
+        it("[AllUp] Sakkaku Darlin",
+            testGenerator(
+                "'''''Sakkaku Darlin'''''",
+                [['''''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Dance|style="background-color:#7fbfff"}}&{{#tag:span|Visual|style="background-color:#ffbf27"}} 40% UP|style="background-color:#dfdfdf"}}'''''<br/>[4 turns] /<br/>'''''{{#tag:span|MentalDmg 50% UP|style="background-color:#3f87ff"}}''''' [4 turns] <br/>'''Link:''' ''{{#tag:span|Attention 30% DOWN|style="background-color:#9f87ff"}}'']]
+                ,
+                "",
+                "Live",
+                "AllUp"
+            ))
+
+        it("[AllMulti] Kyun♡Kome",
+            testGenerator(
+                "'''''Kyun♡Kome'''''",
+                [['''''{{#tag:span|Visual 2.5× Appeal<br/>to all Judges|style="background-color:#ffbf27"}}''''' /<br/>'''''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Dance|style="background-color:#7fbfff"}} 0.5× Appeal|style="background-color:#dfdfdf"}}''''' /<br/>'''''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Dance|style="background-color:#7fbfff"}}&{{#tag:span|Visual|style="background-color:#ffbf27"}}<br/>10% UP|style="background-color:#dfdfdf"}}''''' [3 turns]<br/>'''Link:''' ''{{#tag:span|Visual 1.5× Appeal<br/>to all Judges|style="background-color:#ffbf27"}}'']]
+                ,
+                "",
+                "Live",
+                "AllMulti"
+            ))
+
+        -- Vo
+        it("[Vo] Pretty Sweet",
             testGenerator(
                 "'''''Pretty Sweet'''''",
                 [['''''{{#tag:span|Vocal 3.5× Appeal|style="background-color:#ff7fdf"}}''''' /<br/>'''''{{#tag:span|Judge's Interest 50% DOWN|style="background-color:#9f87ff"}}'''''<br/>[3 turns] /<br/>'''''{{#tag:span|Judge's Interest 100% UP|style="background-color:#9f87ff"}}'''''<br/>[5 turns]<br/>'''Link:''' ''{{#tag:span|Vocal 3× Appeal|style="background-color:#ff7fdf"}}'']]
@@ -433,7 +466,181 @@ describe("Skill", function()
                 "Vo"
             ))
 
-        it("Sora to Ao to Aitsu",
+        it("[VoMulti] Tobikkiri Ginger",
+            testGenerator(
+                "'''''Tobikkiri Ginger'''''",
+                [['''''{{#tag:span|Vocal 3× Appeal<br/>to all Judges|style="background-color:#ff7fdf"}}''''' /<br/>'''''{{#tag:span|Vocal 30% UP|style="background-color:#ff7fdf"}}''''' [4 turns] /<br/>'''''{{#tag:span|MentalDmg 50% UP|style="background-color:#3f87ff"}}''''' [1 turn]<br/>'''Link:''' ''{{#tag:span|Vocal 1.5× Appeal|style="background-color:#ff7fdf"}}'']]
+                ,
+                "",
+                "Live",
+                "VoMulti"
+            ))
+
+        -- TODO: VoUp (No pure VoUp found)
+
+        it("[VoHighmental] Spencer-ke no Nichijou (4☆)",
+            testGenerator(
+                "'''''Spencer-ke no Nichijou''''' '''(4☆)'''''",
+                [['''''{{#tag:span|Vocal 0.8~4× Appeal|style="background-color:#ff7fdf"}}'''''<br/>[effect UP at higher Mental] /<br/>'''''{{#tag:span|MentalDmg 20% CUT|style="background-color:#ff9f1f"}}''''' [2 turns]|]]
+                ,
+                "Yes",
+                "Live",
+                "VoHighmental"
+            ))
+
+        it("[VoLowmental] Fureai, Omoiai+ (4☆)",
+            testGenerator(
+                "'''''Fureai, Omoiai+''''' '''(4☆)'''",
+                [['''''{{#tag:span|Vocal 1~5× Appeal|style="background-color:#ff7fdf"}}'''''<br/>[effect UP at lower Mental]<br/>'''Link:''' ''{{#tag:span|Vocal 150% UP|style="background-color:#ff7fdf"}}'' [4 turns]|]]
+                ,
+                "",
+                "Live",
+                "VoLowmental"
+            ))
+
+        it("[VoMelancholy] Koufuku no Rhythm",
+            testGenerator(
+                "'''''Koufuku no Rhythm'''''",
+                [['''''{{#tag:span|Vocal 3.5× Appeal|style="background-color:#ff7fdf"}}''''' /<br/>'''''{{#tag:span|Melancholy 10% to All Units|style="background-color:#9f87ff"}}'''''<br/>[3 turns]<br/>'''Link:''' ''{{#tag:span|MentalDmg 20% CUT|style="background-color:#ff9f1f"}}''<br/>[5 turns]|]]
+                ,
+                "",
+                "Live",
+                "VoMelancholy"
+            ))
+
+        -- FIXME: THIS
+        it("[VoRevive] Nana Rinbu+ (4☆) [FIXME: NOT_SAME_AS_GAME]",
+            testGenerator(
+                "'''''Nana Rinbu+''''' '''(4☆)'''",
+                [['''''{{#tag:span|Vocal 160% UP|style="background-color:#ff7fdf"}}''''' [5 turns] /<br/>'''''{{#tag:span|Mental 51% Auto-Revive|style="background-color:#1fdf7f"}}'''''<br/>[5 turns]<br/>'''Link:''' ''{{#tag:span|Vocal 3× Appeal|style="background-color:#ff7fdf"}}'']]
+                ,
+                "",
+                "Live",
+                "VoRevive"
+            ))
+
+        -- Vo & Da
+        it("[VoDa] Hibi o Tsumugu Inverno",
+            testGenerator(
+                "'''''Hibi o Tsumugu Inverno'''''",
+                [['''''{{#tag:span|Vocal 2.5× Appeal|style="background-color:#ff7fdf"}}''''' /<br/>'''''{{#tag:span|Dance 1.5× Appeal|style="background-color:#7fbfff"}}''''' <br/>'''Link:''' ''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Dance|style="background-color:#7fbfff"}} 40% UP|style="background-color:#dfdfdf"}}''<br/>[5 Turns]|]],
+                "",
+                "Live",
+                "VoDa"
+            ))
+
+        it("[VoDaMulti] CHILLY+ (3☆)",
+            testGenerator(
+                "'''''CHILLY+''''' '''(3☆)'''",
+                [['''''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Dance|style="background-color:#7fbfff"}} 2× Appeal<br/>to All Judges|style="background-color:#dfdfdf"}}'''''<br/>'''Link:''' ''{{#tag:span|Increase Nichika Appeal<br/>by 1×|style="background-color:#dfdfdf"}}'' [4 turns]|]],
+                "",
+                "Live",
+                "VoDaMulti"
+            ))
+
+        -- TODO: VoDaUp
+
+        -- Vo & Vi
+        it("[VoVi] Sora o Hane",
+            testGenerator(
+                [['''''{{#tag:span|Sora o|style="background-color:#ffbf27"}}{{#tag:span| Hane|style="background-color:#ff7fdf"}}''''']],
+                [[|'''''{{#tag:span|Visual 2.5× Appeal|style="background-color:#ffbf27"}}''''' /<br/>'''''{{#tag:span|Vocal 1.5× Appeal|style="background-color:#ff7fdf"}}'''''<br/>'''Link:''' ''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Visual|style="background-color:#ffbf27"}} 40% UP|style="background-color:#dfdfdf"}}''<br/>[5 turns]|]],
+                "",
+                "Live",
+                "VoVi"
+            ))
+
+        -- TODO: VoViMulti, VoViUp
+
+        -- Da(s)
+        it("[Da] Rinze Kaden (4☆)",
+            testGenerator(
+                "'''''Rinze Kaden+''''' '''(4☆)'''",
+                [['''''{{#tag:span|Dance 1.1~5.5× Appeal|style="background-color:#7fbfff"}}'''''<br/>[effect UP at higher Memory Gauge]<br/>'''''{{#tag:span|Memory Gauge 30% DOWN|style="background-color:#9f87ff"}}'''''<br/>'''Link:''' ''{{#tag:span|Dance 3× Appeal|style="background-color:#7fbfff"}}'']]
+                ,
+                "No",
+                "Live",
+                "Da"
+            ))
+
+        it("[DaMulti] Harari Hirari Musubu (4☆)",
+            testGenerator(
+                "'''''Harari Hirari Musubu''''' '''(4☆)'''",
+                [['''''{{#tag:span|Dance 4× Appeal<br/>to all Judges|style="background-color:#7fbfff"}}''''' /<br/>'''''{{#tag:span|{{#tag:span|Reduce own Mental by 25%|style="background-color:#ff7f7f"}}&<br/>{{#tag:span|Dance Maximum 180% UP [3 turns]|style="background-color:#7fbfff"}}|style="background-color:#dfdfdf"}}'''''<br/>[effect UP at higher Reduction]<br/>'''{{#tag:span|Plus:|style="background-color:#DF78FF"}}''' [If: w/ L'Antica & Mental ≤ 49%]<br/>''{{#tag:span|Dance 1× Appeal to all Judges|style="background-color:#7fbfff"}}'']],
+                "",
+                "Live",
+                "DaMulti"
+            ))
+
+        it("[DaUp] Be~♡bop Kaigan",
+            testGenerator(
+                "'''''Be~♡bop Kaigan'''''",
+                [['''''FAST {{#tag:span|MentalDmg 50% UP|style="background-color:#3f87ff"}}''''' [1 turn] /<br/>'''''{{#tag:span|Dance 100% UP|style="background-color:#7fbfff"}}''''' [3 turns]<br/>'''Link:''' ''{{#tag:span|Mental 20% Heal|style="background-color:#1fdf7f"}}'']],
+                "",
+                "Live",
+                "DaUp"
+            ))
+
+        it("[DaHighmental] Let's☆Shinobi Ashi! (4☆)",
+            testGenerator(
+                "'''''Let's☆Shinobi Ashi!''''' '''(4☆)'''",
+                [['''''{{#tag:span|Dance Maximum 4× Appeal|style="background-color:#7fbfff"}}'''''<br/>[effect UP at higher Mental] /<br/>'''''{{#tag:span|Dance 35% UP|style="background-color:#7fbfff"}}''''' [3 turns]|]],
+                "Yes",
+                "Live",
+                "DaHighmental"
+            ))
+
+        it("[DaLowmental] RESONANCE (4☆)",
+            testGenerator(
+                "'''''RESONANCE''''' '''(4☆)'''",
+                [['''''{{#tag:span|Dance Maximum 6× Appeal|style="background-color:#7fbfff"}}''''' /<br/>[effect UP at lower Mental]|]],
+                "",
+                "Live",
+                "DaLowmental"
+            ))
+
+        it("[DaMelancholy] Koufuku no Rhythm+ (4☆)",
+            testGenerator(
+                "'''''Koufuku no Rhythm+''''' '''(4☆)'''",
+                [['''''{{#tag:span|Dance 5× Appeal|style="background-color:#7fbfff"}}''''' /<br/>'''''{{#tag:span|Melancholy 10% to All Units|style="background-color:#9f87ff"}}'''''<br/>[3 turns]<br/>'''Link:''' ''{{#tag:span|MentalDmg 20% CUT|style="background-color:#ff9f1f"}}''<br/>[5 turns]|]],
+                "",
+                "Live",
+                "DaMelancholy"
+            ))
+
+        it("[DaRevive] Kiri Ne Sansan+ (4☆)",
+            testGenerator(
+                "'''''Kiri Ne Sansan+''''' '''(4☆)'''",
+                [['''''{{#tag:span|Dance 3× Appeal|style="background-color:#7fbfff"}}''''' /<br/>'''''{{#tag:span|Mental 20% Auto-Revive|style="background-color:#1fdf7f"}}''''' [2 turns]<br/>'''Link:''' ''{{#tag:span|Dance 150% UP|style="background-color:#7fbfff"}}'' [4 turns]|]],
+                "",
+                "Live",
+                "DaRevive"
+            ))
+
+        -- Da & Vi
+        it("[DaVi] Ekisenjou no Nichijou (4☆)",
+            testGenerator(
+                "'''''Ekisenjou no Nichijou''''' '''(4☆)'''",
+                [['''''{{#tag:span|{{#tag:span|Dance|style="background-color:#7fbfff"}}&{{#tag:span|Visual|style="background-color:#ffbf27"}} 2× Appeal|style="background-color:#dfdfdf"}}''''' /<br/>'''''{{#tag:span|{{#tag:span|Dance|style="background-color:#7fbfff"}}&{{#tag:span|Visual|style="background-color:#ffbf27"}} 20% UP|style="background-color:#dfdfdf"}}'''''<br/>[3 turns]|]],
+                "",
+                "Live",
+                "DaVi"
+            ))
+
+        -- TODO: DaViMulti, DaViup
+
+        -- Vi
+        it("[Vi] Visual Appeal IV",
+            testGenerator(
+                "'''''Visual Appeal IV'''''",
+                [['''''Visual 2.5× Appeal''''']]
+                ,
+                "No",
+                "Live",
+                "Vi"
+            ))
+
+        it("[ViMulti] Sora to Ao to Aitsu",
             testGenerator(
                 "'''''Sora to Ao to Aitsu'''''",
                 [['''''{{#tag:span|Visual 2.5× Appeal<br/>to All Judges|style="background-color:#ffbf27"}}''''' /<br/>'''''{{#tag:span|Visual 10% UP|style="background-color:#ffbf27"}}''''' [3 turns] /<br/>'''''{{#tag:span|Visual 5% UP|style="background-color:#ffbf27"}}''''' [4 turns]<br/>'''Link:''' ''{{#tag:span|Visual 2× Appeal<br/>to All Judges|style="background-color:#ffbf27"}}'']]
@@ -441,6 +648,82 @@ describe("Skill", function()
                 "No",
                 "Live",
                 "ViMulti"
+            ))
+
+        it("[ViUp] Be~♡bop Kaigan+ (4☆)",
+            testGenerator(
+                "'''''Be~♡bop Kaigan+''''' '''(4☆)'''",
+                [['''''FAST {{#tag:span|MentalDmg 70% UP|style="background-color:#3f87ff"}}''''' [1 turn] /<br/>'''''{{#tag:span|Visual 150% UP|style="background-color:#ffbf27"}}''''' [3 turns]<br/>'''Link:''' ''{{#tag:span|Mental 20% Heal|style="background-color:#1fdf7f"}}'']],
+                "",
+                "Live",
+                "ViUp"
+            ))
+
+        it("[ViHighmental] Akizora to Kouyou",
+            testGenerator(
+                "'''''Akizora to Kouyou'''''",
+                [['''''{{#tag:span|Visual 0.7~3.5× Appeal|style="background-color:#ffbf27"}}''''' <br/>[effect UP at higher Mental] /<br/>'''''{{#tag:span|Visual 25% UP|style="background-color:#ffbf27"}}''''' [5 turns]<br/>'''Link:''' ''{{#tag:span|Visual 80% UP|style="background-color:#ffbf27"}}'' [4 turns]|]],
+                "Yes",
+                "Live",
+                "ViHighmental"
+            ))
+
+        it("[ViLowmental] 1/60 NaturalHeart+ (4☆)",
+            testGenerator(
+                "'''''1/60 NaturalHeart+''''' '''(4☆)'''",
+                [['''''{{#tag:span|Visual 1.2~6× Appeal|style="background-color:#ffbf27"}}'''''<br/>[effect UP at lower Mental]<br/>'''''{{#tag:span|Visual 2× Appeal<br/>to all Judges|style="background-color:#ffbf27"}}'''''<br/>'''Link:''' ''{{#tag:span|Visual 3× Appeal|style="background-color:#ffbf27"}}'']],
+                "",
+                "Live",
+                "ViLowmental"
+            ))
+
+        it("[ViMelancholy] Tricky Night+",
+            testGenerator(
+                "'''''Tricky Night'''''",
+                [['''''{{#tag:span|Visual 3× Appeal|style="background-color:#ffbf27"}}''''' /<br/>'''''{{#tag:span|Melancholy 5% to Rivals|style="background-color:#9f87ff"}}''''' [3 turns]<br/>'''Link:''' ''{{#tag:span|Visual 3× Appeal|style="background-color:#ffbf27"}}'']],
+                "",
+                "Live",
+                "ViMelancholy"
+            ))
+
+        it("[ViRevive] Kiri Ne Sansan+ (4☆)", 
+            testGenerator(
+                "'''''Kiri Ne Sansan+''''' '''(4☆)'''",
+                [[|'''''{{#tag:span|Visual 4.5× Appeal|style="background-color:#ffbf27"}}''''' /<br/>'''''{{#tag:span|Mental 30% Auto-Revive|style="background-color:#1fdf7f"}}''''' [2 turns]<br/>'''Link:''' ''{{#tag:span|Visual 150% UP|style="background-color:#ffbf27"}}'' [4 turns]|]],
+                "",
+                "Live",
+                "ViRevive"
+            ))
+
+        -- Misc
+        it("[Vi] Visual Appeal IV",
+            testGenerator(
+                "'''''Visual Appeal IV'''''",
+                [['''''Visual 2.5× Appeal''''']]
+                ,
+                "No",
+                "Live",
+                "Vi"
+            ))
+
+        it("[Onehit] Joujou Kinga (4☆)",
+            testGenerator(
+                "'''''Joujou Kinga''''' '''(4☆)'''",
+                [['''''{{#tag:span|Dance 2× Appeal|style="background-color:#7fbfff"}}''''' /<br/>'''''{{#tag:span|Very rare (2%) chance<br/>to instantly satisfy Judge|style="background-color:#9f87ff"}}''''']]
+                ,
+                "No",
+                "Live",
+                "Onehit"
+            ))
+
+        it("[Excellent] Long Short Time! (4☆)",
+            testGenerator(
+                "'''''Long Short Time!''''' '''(4☆)'''",
+                [['''''{{#tag:span|Excellent 3.5× Appeal|style="background-color:#dfdfdf"}}''''' /<br/>'''''{{#tag:span|Attention 20% UP|style="background-color:#a787ff"}}''''' [4 turns]|]]
+                ,
+                "No",
+                "Live",
+                "Excellent"
             ))
     end)
 
@@ -515,5 +798,31 @@ describe("Skill", function()
             "Passive",
             "DaUp"
         ))
+    end)
+
+    describe("[Compat] descriptionParser", function()
+        local function c(x)
+            return { args = { x } }
+        end
+
+        it("Yes", function()
+            assert.is_equal("Yes", Skill.descriptionParser(c("Yes, Live, Allup")))
+        end)
+
+        it("No", function()
+            assert.is_equal("No", Skill.descriptionParser(c("No, Live, Allup")))
+        end)
+
+        it("Niji", function()
+            assert.is_equal("Niji", Skill.descriptionParser(c("Niji, Live, Allup")))
+        end)
+
+        it("broken", function()
+            assert.is_equal("No", Skill.descriptionParser(c("Nasdf")))
+        end)
+
+        it("empty", function()
+            assert.is_equal("No", Skill.descriptionParser(c("")))
+        end)
     end)
 end)

@@ -44,6 +44,8 @@ local live = {
     multi = false,
     lowmental = false,
     highmental = false,
+    melancholy = false,
+    revive = false,
     gauge = false,
     onehit = false,
     excellent = false
@@ -63,6 +65,32 @@ end
 local function explode0(base, s)
     local sp, _ = base:find(s)
     return base:sub(0, sp)
+end
+
+function p.descriptionParser(frame)
+    local input = frame.args[1]:lower()
+    if input:find("yes") then
+        return "Yes"
+    end
+
+    if input:find("niji") then
+        return "Niji"
+    end
+
+    return "No"
+end
+
+
+function p.main()
+
+end
+
+
+function p._main(args)
+    if p.basicParser(args) then
+        return p.render()
+    end
+    return ""
 end
 
 function p.basicParser(args)
@@ -111,13 +139,6 @@ function p.basicParser(args)
     end
 
     return true
-end
-
-function p._main(args)
-    if p.basicParser(args) then
-        return p.render()
-    end
-    return ""
 end
 
 function p.render()
@@ -446,7 +467,7 @@ end
 -- Live type checker
 function live:check()
     local t = p.text:lower()
-    local text = explode0(explode0(t, "live"), "link")
+    local text = explode0(t, "link")
 
     local typeList = {
         vocal = 'vocal',
@@ -466,8 +487,11 @@ function live:check()
         multi = 'all judges',
         lowmental = 'lower mental',
         highmental = 'higher mental',
+        melancholy = 'melancholy',
+        revive = 'revive',
         gauge = 'memory gauge',
-        onehit = 'instantly satisfy'
+        onehit = 'instantly satisfy',
+        excellent = 'excellent'
     }
 
     for k, v in pairs(typeList) do
@@ -656,7 +680,9 @@ function live:parse()
         end
 
         if self.revive then
-            p.icon = "Revive"
+            if not self.vocal and not self.dance and not self.visual then
+                p.icon = "Revive"
+            end
         end
 
         if self.influence and not self.heal then

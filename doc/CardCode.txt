@@ -2,8 +2,6 @@ This module is intended to get data from card code
 
 This docuemntation is hosted on [https://github.com/ShinyColorsWiki/Wiki-Module Github repository]. Any changes made on wiki may be overwritten by bot any time.
 
-__NOTOC__
-
 = Card Code Structure =
 
 In <code>1040240010</code>, Sturcture is like
@@ -57,19 +55,20 @@ Return: <code>Produce</code>
 === <code>getRarityFromCode</code> ===
 Usage: <code><nowiki>{{#invoke:CardCode|getTypeFromCode|1940020010}}</nowiki></code>
 
-Return: <code>Produce</code>
+Return: <code>IdolRoad SSR</code>
 
 === <code>getCharacterFromCode</code> ===
 Usage: <code><nowiki>{{#invoke:CardCode|getCharacterFromCode|1940020010}}</nowiki></code>
 
-Return: <code>IdolRoad SSR</code>
+Return: <code>Hiori Kazano</code>
 
 === <code>getNumberFromCode</code> ===
 Usage: <code><nowiki>{{#invoke:CardCode|getNumberFromCode|1940020010}}</nowiki></code>
 
-Return: <code>Hiori Kazano</code>
+Return: <code>1</code>
 
 === <code>getCardPageNameFromCode</code> ===
 Usage: <code><nowiki>{{#invoke:CardCode|getCardPageNameFromCode|1940020010}}</nowiki></code>
 
 Return: <code>P-IdolRoad SSR1 Hiori</code>
+__NOTOC__
