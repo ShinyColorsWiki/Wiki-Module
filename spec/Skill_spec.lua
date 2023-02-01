@@ -686,7 +686,7 @@ describe("Skill", function()
                 "ViMelancholy"
             ))
 
-        it("[ViRevive] Kiri Ne Sansan+ (4☆)", 
+        it("[ViRevive] Kiri Ne Sansan+ (4☆)",
             testGenerator(
                 "'''''Kiri Ne Sansan+''''' '''(4☆)'''",
                 [[|'''''{{#tag:span|Visual 4.5× Appeal|style="background-color:#ffbf27"}}''''' /<br/>'''''{{#tag:span|Mental 30% Auto-Revive|style="background-color:#1fdf7f"}}''''' [2 turns]<br/>'''Link:''' ''{{#tag:span|Visual 150% UP|style="background-color:#ffbf27"}}'' [4 turns]|]],
