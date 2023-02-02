@@ -80,11 +80,9 @@ function p.descriptionParser(frame)
     return "No"
 end
 
-
-function p.main()
-
+function p.main(frame)
+    return p._main(frame:getParent().args)
 end
-
 
 function p._main(args)
     if p.basicParser(args) then
