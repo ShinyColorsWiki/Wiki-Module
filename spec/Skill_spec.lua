@@ -696,15 +696,73 @@ describe("Skill", function()
             ))
 
         -- Misc
-        it("[Vi] Visual Appeal IV",
+        -- TODO: AttentionDown, AttentionUp
+        it("[GaugeUp] Mizuiro Kanjou",
             testGenerator(
-                "'''''Visual Appeal IV'''''",
-                [['''''Visual 2.5× Appeal''''']]
+                "'''''Mizuiro Kanjou'''''",
+                [['''''{{#tag:span|{{#tag:span|Vocal|style="background-color:#ff7fdf"}}&{{#tag:span|Dance|style="background-color:#7fbfff"}}&{{#tag:span|Visual|style="background-color:#ffbf27"}} 30% UP|style="background-color:#dfdfdf"}}'''''<br/>[5 turns] /<br/>'''''{{#tag:span|Memory Gauge 30% UP|style="background-color:#9f87ff"}}'''''<br/>'''Link:''' ''{{#tag:span|Dance 0.7~3.5× Appeal|style="background-color:#7fbfff"}}''<br/>[effect UP at higher Memory Gauge]|]]
                 ,
                 "No",
                 "Live",
-                "Vi"
+                "GaugeUp"
             ))
+
+        it("[Guard] Fuffu~n Fufu~n♪ (4☆)",
+            testGenerator(
+                "'''''Fuffu~n Fufu~n♪''''' '''(4☆)'''",
+                [['''''{{#tag:span|MentalDmg 30% CUT|style="background-color:#ff9f1f"}}''''' [3 turns] /<br/>'''''{{#tag:span|Vocal 50% UP|style="background-color:#ff7fdf"}}''''' [2 turns]|]]
+                ,
+                "No",
+                "Live",
+                "Guard"
+            ))
+
+        it("[Heal] Mental Cure IV",
+            testGenerator(
+                "'''''Mental Cure IV'''''",
+                "'''''Mental 20% Heal'''''",
+                "Yes",
+                "Live",
+                "Heal"
+            ))
+
+
+        it("[Regen] Irodori Fashion Doll (4☆)",
+            testGenerator(
+                "'''''Irodori Fashion Doll''''' '''(4☆)'''",
+                [['''''{{#tag:span|Attention 30% DOWN|style="background-color:#9f87ff"}}''''' [3 turns] /<br/>'''''{{#tag:span|Mental 5% Regen|style="background-color:#1fdf7f"}}''''' [3 turns] /<br/>'''''{{#tag:span|Visual 50% UP|style="background-color:#ffbf27"}}''''' [2 turns]|]]
+                ,
+                "Yes",
+                "Live",
+                "Regen"
+            ))
+
+
+        -- TODO: Revive
+
+        it("[InfluenceDown] Watage no Sou (4☆)",
+            testGenerator(
+                "'''''Watage no Sou''''' '''(4☆)'''",
+                [['''''{{#tag:span|Judge's Influence 30% DOWN|style="background-color:#9f87ff"}}'''''<br/>[3 turns]|]]
+                ,
+                "No",
+                "Live",
+                "InfluenceDown"
+            ))
+
+        -- TODO: InfluenceUp
+
+        it("[InterestDown] I Save You (4☆)",
+            testGenerator(
+                "'''''I Save You''''' '''(4☆)'''",
+                [['''''{{#tag:span|Interest 30% DOWN<br/>to all Judges|style="background-color:#9f87ff"}}''''' [1 turn]|]]
+                ,
+                "No",
+                "Live",
+                "InterestDown"
+            ))
+
+        -- TODO: InfluenceUp, Melancholy
 
         it("[Onehit] Joujou Kinga (4☆)",
             testGenerator(
