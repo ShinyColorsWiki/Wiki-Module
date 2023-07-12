@@ -57,7 +57,7 @@ p.character_code = {
     [25] = "Mikoto Aketa",
     -- Luca Ikaruga
     [26] = "Luca Ikaruga",
-    -- Collab
+    -- Collab: Oshi no Ko
     [801] = "Ruby",
     [802] = "Kana",
     [803] = "MEMCho"
