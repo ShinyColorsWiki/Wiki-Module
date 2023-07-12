@@ -54,7 +54,13 @@ p.character_code = {
     [23] = "Hinana Ichikawa",
     -- SHHis
     [24] = "Nichika Nanakusa",
-    [25] = "Mikoto Aketa"
+    [25] = "Mikoto Aketa",
+    -- Luca Ikaruga
+    [26] = "Luca Ikaruga",
+    -- Collab
+    [801] = "Ruby",
+    [802] = "Kana",
+    [803] = "MEMCho"
 }
 
 ---@param s string string to trim
