@@ -110,9 +110,9 @@ end
 function p.getCardPageNameFromCode(code)
     local data = p.getInfoFromCode(code)
     
-    -- Card number doesn't exists on R and N pages. 
+    -- Card number doesn't exists on N and R pages. 
     local cardnum = data[4]
-    if a <= 2 then
+    if data[2] == "N" or data[2] == "R" then
         a = ""
     end
 
