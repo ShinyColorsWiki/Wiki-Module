@@ -109,10 +109,17 @@ end
 
 function p.getCardPageNameFromCode(code)
     local data = p.getInfoFromCode(code)
+    
+    -- Card number doesn't exists on R and N pages. 
+    local cardnum = data[4]
+    if a <= 2 then
+        a = ""
+    end
+
     return string.format("%s-%s%s %s",
         data[1]:sub(1, 1),
         data[2],
-        data[4],
+        cardnum,
         data[3]:match("%w+"))
 end
 
