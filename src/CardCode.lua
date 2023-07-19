@@ -110,11 +110,11 @@ end
 function p.getCardPageNameFromCode(code)
     local raw_data = p.splitCode(code)
     local data = p.getInfo(raw_data)
-    
-    -- Card number doesn't exists on N and R pages. 
+
+    -- Card number doesn't exists on N and R pages.
     local cardnum = data[4]
     if raw_data[2] <= 2 then
-        a = ""
+        cardnum = ""
     end
 
     return string.format("%s-%s%s %s",
