@@ -4,19 +4,18 @@ This docuemntation is hosted on [https://github.com/ShinyColorsWiki/Wiki-Module 
 
 = Card Code Structure =
 
-In <code>1040240010</code>, Sturcture is like
-
-<span style="background-color: #800000; color: white;">1</span
+In <code>[[P-SSR1 Nichika|1040240010]]</code>, Card code structure is like <span style="background-color: #800000; color: white;">1</span
 ><span style="background-color: #008000; color: white;">04</span
 ><span style="background-color: #808000; color: white;">024</span
 ><span style="background-color: #000080; color: white;">001</span
 ><span style="background-color: #808080; color: white;">0</span>
 
-1. The <span style="background-color: #800000; color: white;">1st</span> number means type of card.<br/>
-2. The <span style="background-color: #008000; color: white;">2nd to 3rd</span> numbers means card rarity.<br/>
-3. The <span style="background-color: #808000; color: white;">4th to 6th</span> numbers means character code.<br/>
-4. The <span style="background-color: #000080; color: white;">7th to 9th</span> numbers means card number of type/rarity/character.<br/>
-5. The <span style="background-color: #808080; color: white;">10th</span> number is ignored. (at least for now)
+# The <span style="background-color: #800000; color: white;">1st</span> number means type of card.<br/>
+# The <span style="background-color: #008000; color: white;">2nd to 3rd</span> numbers means card rarity.<br/>
+# The <span style="background-color: #808000; color: white;">4th to 6th</span> numbers means character code.<br/>
+# The <span style="background-color: #000080; color: white;">7th to 9th</span> numbers means card number of type/rarity/character.<br/>
+# The <span style="background-color: #808080; color: white;">10th</span> number is ignored. (at least for now)
+
 
 = Usage =
 
