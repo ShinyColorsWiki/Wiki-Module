@@ -55,8 +55,10 @@ p.character_code = {
     -- SHHis
     [24] = "Nichika Nanakusa",
     [25] = "Mikoto Aketa",
-    -- Luca Ikaruga
+    -- CoMETIK
     [26] = "Luca Ikaruga",
+    [27] = "Hana Suzuki",
+    [28] = "Haruki Ikuta",
     -- Collab: Oshi no Ko
     [801] = "Ruby",
     [802] = "Kana",
