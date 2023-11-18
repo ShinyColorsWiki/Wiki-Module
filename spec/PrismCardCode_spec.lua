@@ -30,7 +30,7 @@ describe("PrismCardCode", function()
         local code = c("390001")
 
         it("Rarity check", function()
-            assert.is_equal(PrismCardCode.getRarityFromCode(code), "SSR")
+            assert.is_equal(PrismCardCode.getSupportRarityFromCode(code), "SSR")
         end)
 
         it("Character check", function()
