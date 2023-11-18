@@ -1,20 +1,18 @@
-This module is intended to get data from card code for Enza, an original ShinyColors.
+This module is intended to get data from card code of ShinyColors: Song For Prism. [WIP]
+
+Note that unlikely Enza Card Code, There's no 'type' of card in card code numbers.
 
 This docuemntation is hosted on [https://github.com/ShinyColorsWiki/Wiki-Module Github repository]. Any changes made on wiki may be overwritten by bot any time.
 
 = Card Code Structure =
 
-In <code>[[P-SSR1 Nichika|1040240010]]</code>, Card code structure is like <span style="background-color: #800000; color: white;">1</span
-><span style="background-color: #008000; color: white;">04</span
-><span style="background-color: #808000; color: white;">024</span
+In <code>390001</code>, Card code structure is like <span style="background-color: #008000; color: white;">3</span
+><span style="background-color: #808000; color: white;">90</span
 ><span style="background-color: #000080; color: white;">001</span
-><span style="background-color: #808080; color: white;">0</span>
 
-# The <span style="background-color: #800000; color: white;">1st</span> number means type of card.
-# The <span style="background-color: #008000; color: white;">2nd to 3rd</span> numbers means card rarity.
-# The <span style="background-color: #808000; color: white;">4th to 6th</span> numbers means character code.
-# The <span style="background-color: #000080; color: white;">7th to 9th</span> numbers means card number of type/rarity/character.
-# The <span style="background-color: #808080; color: white;">10th</span> number is ignored. (at least for now)
+# The <span style="background-color: #008000; color: white;">1st</span> numbers means card rarity.
+# The <span style="background-color: #808000; color: white;">2nd to 3rd</span> numbers means character code.
+# The <span style="background-color: #000080; color: white;">4th to 6th</span> numbers means card number of type/rarity/character.
 
 
 = Usage =
