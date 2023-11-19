@@ -18,17 +18,19 @@ In <code>390001</code>, Card code structure is like <span style="background-colo
 
 == Wiki Structure ==
 
-In <code>390001</code>, Card code structure is like <span style="background-color: #800000; color: white;">1</span
+In <code>2390001</code>, Card code structure is like <span style="background-color: #800000; color: white;">2</span
 ><span style="background-color: #008000; color: white;">3</span
 ><span style="background-color: #808000; color: white;">90</span
-><span style="background-color: #000080; color: white;">001</span
+><span style="background-color: #000080; color: white;">001</span>
 
 # The <span style="background-color: #800000; color: white;">1st</span> number means type of card.
 # The <span style="background-color: #008000; color: white;">2nd</span> numbers means card rarity.
 # The <span style="background-color: #808000; color: white;">3th to 4th</span> numbers means character code.
 # The <span style="background-color: #000080; color: white;">5th to 7th</span> numbers means card number of type/rarity/character.
 
-= Usage =
+= Usage [WIP] =
+
+Note: Below section is not updated yet. It's just copy-paste of Enza docs.
 
 == <code>getTypeFromCode</code> ==
 This function returns the type of card from card code.
