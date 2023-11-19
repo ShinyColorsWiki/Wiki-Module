@@ -12,6 +12,11 @@
 
 local p = {}
 
+p.type = {
+    [1] = "Produce",
+    [2] = "Support"
+}
+
 p.rarity = {
     [1] = "R",
     [2] = "SR",
@@ -71,25 +76,28 @@ end
 function p.splitCode(code)
     code = strim(code.args[1])
     return {
-        tonumber(string.sub(code, 1, 1)), -- rarity
-        tonumber(string.sub(code, 2, 3)), -- character
-        tonumber(string.sub(code, 4, 6)) -- card number
+        tonumber(string.sub(code, 1, 1)), -- type
+        tonumber(string.sub(code, 2, 2)), -- rarity
+        tonumber(string.sub(code, 3, 4)), -- character
+        tonumber(string.sub(code, 5, 7)) -- card number
     }
 end
 
 function p.getProduceInfo(arr)
     return {
-        string.format("%d*", arr[1]),
-        p.character_code[arr[2]], -- character
-        arr[3] -- card number
+        p.type[arr[1]],
+        string.format("%d*", arr[2]),
+        p.character_code[arr[3]], -- character
+        arr[4] -- card number
     }
 end
 
 function p.getSupportInfo(arr)
     return {
-        p.rarity[arr[1]], -- rarity
-        p.character_code[arr[2]], -- character
-        arr[3] -- card number
+        p.type[arr[1]],
+        p.rarity[arr[2]], -- rarity
+        p.character_code[arr[3]], -- character
+        arr[4] -- card number
     }
 end
 
@@ -101,20 +109,28 @@ function p.getSupportInfoFromCode(code)
     return p.getSupportInfo(p.splitCode(code))
 end
 
-function p.getProduceRarityFromCode(code)
-    return p.getProduceInfoFromCode(code)[1]
+function p.getInfoFromCode(code)
+    local raw_data = p.splitCode(code)
+
+    -- Produce card
+    if raw_data[1] == 1 then
+        return p.getProduceInfo(raw_data)
+    end
+
+    -- Support card
+    return p.getSupportInfo(raw_data)
 end
 
-function p.getSupportRarityFromCode(code)
-    return p.getSupportInfoFromCode(code)[1]
+function p.getRarityFromCode(code)
+    return p.getInfoFromCode(code)[1]
 end
 
 function p.getCharacterFromCode(code)
-    return p.getProduceInfoFromCode(code)[2]
+    return p.getInfoFromCode(code)[2]
 end
 
 function p.getCardNumberFromCode(code)
-    return p.getSupportInfoFromCode(code)[3]
+    return p.getInfoFromCode(code)[3]
 end
 
 return p

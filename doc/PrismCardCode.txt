@@ -1,19 +1,32 @@
 This module is intended to get data from card code of ShinyColors: Song For Prism. [WIP]
 
-Note that unlikely Enza Card Code, There's no 'type' of card in card code numbers.
+Note that unlikely Enza Card Code, There's no 'type' of card in internal card code numbers. 
+But for wiki, We just added the 'type' on code. Like Enza did.
 
 This docuemntation is hosted on [https://github.com/ShinyColorsWiki/Wiki-Module Github repository]. Any changes made on wiki may be overwritten by bot any time.
 
 = Card Code Structure =
 
+== Original Structure ==
 In <code>390001</code>, Card code structure is like <span style="background-color: #008000; color: white;">3</span
 ><span style="background-color: #808000; color: white;">90</span
 ><span style="background-color: #000080; color: white;">001</span
 
 # The <span style="background-color: #008000; color: white;">1st</span> numbers means card rarity.
 # The <span style="background-color: #808000; color: white;">2nd to 3rd</span> numbers means character code.
-# The <span style="background-color: #000080; color: white;">4th to 6th</span> numbers means card number of type/rarity/character.
+# The <span style="background-color: #000080; color: white;">4th to 6th</span> numbers means card number of rarity/character.
 
+== Wiki Structure ==
+
+In <code>390001</code>, Card code structure is like <span style="background-color: #800000; color: white;">1</span
+><span style="background-color: #008000; color: white;">3</span
+><span style="background-color: #808000; color: white;">90</span
+><span style="background-color: #000080; color: white;">001</span
+
+# The <span style="background-color: #800000; color: white;">1st</span> number means type of card.
+# The <span style="background-color: #008000; color: white;">2nd</span> numbers means card rarity.
+# The <span style="background-color: #808000; color: white;">3th to 4th</span> numbers means character code.
+# The <span style="background-color: #000080; color: white;">5th to 7th</span> numbers means card number of type/rarity/character.
 
 = Usage =
 

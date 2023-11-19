@@ -11,10 +11,10 @@ end)
 
 describe("PrismCardCode", function()
     describe("Produce", function()
-        local code = c("328001")
+        local code = c("1328001")
 
         it("Rarity check", function()
-            assert.is_equal(PrismCardCode.getProduceRarityFromCode(code), "3*")
+            assert.is_equal(PrismCardCode.getRarityFromCode(code), "3*")
         end)
 
         it("Character check", function()
@@ -27,10 +27,10 @@ describe("PrismCardCode", function()
     end)
 
     describe("Support", function()
-        local code = c("390001")
+        local code = c("2390001")
 
         it("Rarity check", function()
-            assert.is_equal(PrismCardCode.getSupportRarityFromCode(code), "SSR")
+            assert.is_equal(PrismCardCode.getRarityFromCode(code), "SSR")
         end)
 
         it("Character check", function()
