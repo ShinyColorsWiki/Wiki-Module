@@ -121,16 +121,20 @@ function p.getInfoFromCode(code)
     return p.getSupportInfo(raw_data)
 end
 
-function p.getRarityFromCode(code)
+function p.getTypeFromCode(code)
     return p.getInfoFromCode(code)[1]
 end
 
-function p.getCharacterFromCode(code)
+function p.getRarityFromCode(code)
     return p.getInfoFromCode(code)[2]
 end
 
-function p.getCardNumberFromCode(code)
+function p.getCharacterFromCode(code)
     return p.getInfoFromCode(code)[3]
+end
+
+function p.getCardNumberFromCode(code)
+    return p.getInfoFromCode(code)[4]
 end
 
 return p

@@ -13,6 +13,10 @@ describe("PrismCardCode", function()
     describe("Produce", function()
         local code = c("1328001")
 
+        it("Type check", function()
+            assert.is_equal(PrismCardCode.getTypeFromCode(code), "Produce")
+        end)
+
         it("Rarity check", function()
             assert.is_equal(PrismCardCode.getRarityFromCode(code), "3*")
         end)
@@ -28,6 +32,10 @@ describe("PrismCardCode", function()
 
     describe("Support", function()
         local code = c("2390001")
+
+        it("Type check", function()
+            assert.is_equal(PrismCardCode.getTypeFromCode(code), "Support")
+        end)
 
         it("Rarity check", function()
             assert.is_equal(PrismCardCode.getRarityFromCode(code), "SSR")
