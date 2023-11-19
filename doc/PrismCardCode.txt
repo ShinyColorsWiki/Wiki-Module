@@ -10,7 +10,7 @@ This docuemntation is hosted on [https://github.com/ShinyColorsWiki/Wiki-Module 
 == Original Structure ==
 In <code>390001</code>, Card code structure is like <span style="background-color: #008000; color: white;">3</span
 ><span style="background-color: #808000; color: white;">90</span
-><span style="background-color: #000080; color: white;">001</span
+><span style="background-color: #000080; color: white;">001</span>
 
 # The <span style="background-color: #008000; color: white;">1st</span> numbers means card rarity.
 # The <span style="background-color: #808000; color: white;">2nd to 3rd</span> numbers means character code.
@@ -35,52 +35,52 @@ Note: Below section is not fully updated yet. It's copy-paste of Enza docs.
 == <code>getTypeFromCode</code> ==
 This function returns the type of card from card code.
 
-Usage: <code><nowiki>{{#invoke:CardCode|getTypeFromCode|<CardCode>}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getTypeFromCode|<PrismCardCode>}}</nowiki></code>
 
 == <code>getRarityFromCode</code> ==
 This function returns the rarity of card from card code
 
-Usage: <code><nowiki>{{#invoke:CardCode|getTypeFromCode|<CardCode>}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getTypeFromCode|<PrismCardCode>}}</nowiki></code>
 
 == <code>getCharacterFromCode</code> ==
 This function returns the character of card from card code.
 
-Usage: <code><nowiki>{{#invoke:CardCode|getCharacterFromCode|<CardCode>}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getCharacterFromCode|<PrismCardCode>}}</nowiki></code>
 
 == <code>getNumberFromCode</code> ==
 This function returns the number of card from card code.
 
-Usage: <code><nowiki>{{#invoke:CardCode|getNumberFromCode|<CardCode>}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getNumberFromCode|<PrismCardCode>}}</nowiki></code>
 
 == <strike><code>getCardPageNameFromCode</code></strike> ==
 This function returns the CardPageName of card from card code. [Not yet implemented]
 
-Usage: <code><nowiki>{{#invoke:CardCode|getCardPageNameFromCode|<CardCode>}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getCardPageNameFromCode|<PrismCardCode>}}</nowiki></code>
 
 = Example =
-== <code>1940020010</code> ==
+== <code>2390001</code> ==
 === <code>getTypeFromCode</code> ===
-Usage: <code><nowiki>{{#invoke:CardCode|getTypeFromCode|1940020010}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getTypeFromCode|2390001}}</nowiki></code>
 
-Return: <code>Produce</code>
+Return: <code>Support</code>
 
 === <code>getRarityFromCode</code> ===
-Usage: <code><nowiki>{{#invoke:CardCode|getTypeFromCode|1940020010}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getTypeFromCode|2390001}}</nowiki></code>
 
-Return: <code>IdolRoad SSR</code>
+Return: <code>SSR</code>
 
 === <code>getCharacterFromCode</code> ===
-Usage: <code><nowiki>{{#invoke:CardCode|getCharacterFromCode|1940020010}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getCharacterFromCode|2390001}}</nowiki></code>
 
-Return: <code>Hiori Kazano</code>
+Return: <code>Hazuki Nanakusa</code>
 
 === <code>getNumberFromCode</code> ===
-Usage: <code><nowiki>{{#invoke:CardCode|getNumberFromCode|1940020010}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getNumberFromCode|2390001}}</nowiki></code>
 
 Return: <code>1</code>
 
-=== <code>getCardPageNameFromCode</code> ===
-Usage: <code><nowiki>{{#invoke:CardCode|getCardPageNameFromCode|1940020010}}</nowiki></code>
+=== <strike><code>getCardPageNameFromCode</code></strike> ===
+Usage: <code><nowiki>{{#invoke:PrismCardCode|getCardPageNameFromCode|2390001}}</nowiki></code>
 
-Return: <code>P-IdolRoad SSR1 Hiori</code>
+Return: <strike><code>SSR1 Hazuki Nanakusa</code></strike>
 __NOTOC__

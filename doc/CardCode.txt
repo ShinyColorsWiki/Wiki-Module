@@ -34,10 +34,10 @@ This function returns the character of card from card code.
 
 Usage: <code><nowiki>{{#invoke:CardCode|getCharacterFromCode|<CardCode>}}</nowiki></code>
 
-== <code>getNumberFromCode</code> ==
+== <code>getCardNumberFromCode</code> ==
 This function returns the number of card from card code.
 
-Usage: <code><nowiki>{{#invoke:CardCode|getNumberFromCode|<CardCode>}}</nowiki></code>
+Usage: <code><nowiki>{{#invoke:CardCode|getCardNumberFromCode|<CardCode>}}</nowiki></code>
 
 == <code>getCardPageNameFromCode</code> ==
 This function returns the CardPageName of card from card code.
@@ -61,8 +61,8 @@ Usage: <code><nowiki>{{#invoke:CardCode|getCharacterFromCode|1940020010}}</nowik
 
 Return: <code>Hiori Kazano</code>
 
-=== <code>getNumberFromCode</code> ===
-Usage: <code><nowiki>{{#invoke:CardCode|getNumberFromCode|1940020010}}</nowiki></code>
+=== <code>getCardNumberFromCode</code> ===
+Usage: <code><nowiki>{{#invoke:CardCode|getCardNumberFromCode|1940020010}}</nowiki></code>
 
 Return: <code>1</code>
 
