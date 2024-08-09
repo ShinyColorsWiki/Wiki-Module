@@ -61,8 +61,9 @@ p.character_code = {
     [28] = "Haruki Ikuta",
     -- Collab: Oshi no Ko
     [801] = "Ruby",
-    [802] = "Kana",
-    [803] = "MEMCho"
+    [802] = "Kana Arima",
+    [803] = "MEMCho",
+    [804] = "Akane Kurokawa",
 }
 
 ---@param s string string to trim
