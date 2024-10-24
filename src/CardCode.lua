@@ -64,6 +64,8 @@ p.character_code = {
     [802] = "Kana Arima",
     [803] = "MEMCho",
     [804] = "Akane Kurokawa",
+    -- Etc
+    [91] = "Hazuki Nanakusa",
 }
 
 ---@param s string string to trim
