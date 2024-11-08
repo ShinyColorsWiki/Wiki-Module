@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       commit_message:
-        description: 'chore: [upload] triggered by workflow'
+        description: 'Commit message for empty commit'
         required: true
-        default: 'Automated empty commit'
+        default: 'chore: [upload] triggered by workflow'
 
 permissions:
   contents: write
