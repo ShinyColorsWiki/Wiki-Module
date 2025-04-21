@@ -18,6 +18,7 @@ p.rarity = {
     [2] = "R",
     [3] = "SR",
     [4] = "SSR",
+    [5] = "UR",
     [93] = "IdolRoad SR",
     [94] = "IdolRoad SSR"
 }
